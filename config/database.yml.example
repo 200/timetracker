@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  username: your-user-name
+  password: your-password
+  
+
+development:
+  database: timetracker_dev
+  <<: *defaults
+
+test: &test
+  database: timetracker_test
+  <<: *defaults
+
+cucumber:
+  <<: *test
