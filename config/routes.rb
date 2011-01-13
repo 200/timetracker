@@ -1,7 +1,7 @@
 Timetracker::Application.routes.draw do
 
   resources :tasks, :except => [:edit, :update] do
-    resources :reports, :only => [:new, :create]
+    resources :reports, :only => [:new, :create, :destroy]
   end
 
   root :to => "tasks#index"

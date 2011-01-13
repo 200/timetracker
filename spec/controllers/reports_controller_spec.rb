@@ -34,5 +34,14 @@ describe ReportsController do
       it { assigns(:report).should == @report }
       it { assert_template "new" }
     end
+    describe "DELETE #destroy" do
+      before(:each) do
+        @report = Factory(:report, :task => @task)
+        @task.reports.stub!(:find).and_return(@report)
+        delete :destroy, :task_id => @task.id, :id => @report.id
+      end
+      it { response.should redirect_to(task_path(@task))}
+      it { controller.flash[:notice].should == "Report deleted!" }
+    end
   end
 end

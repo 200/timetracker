@@ -15,6 +15,12 @@ class ReportsController < ApplicationController
     end
   end
 
+  def destroy
+    load_task
+    @task.reports.find(params[:id]).destroy
+    redirect_to task_url(@task), :notice => "Report deleted!"
+  end
+
   private
 
   def load_task
