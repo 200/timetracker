@@ -1,0 +1,4 @@
+%h2= "New report for #{@task.name}"
+= simple_form_for [@task, @report] do |form|
+  = form.input :time, :hint => "Write number of working hours you want to report"
+  = form.submit "Create"

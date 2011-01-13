@@ -10,6 +10,8 @@ module NavigationHelpers
 
     when /the main page/
       root_path
+    when /the (\d+). task page/
+      task_path(:id => $1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

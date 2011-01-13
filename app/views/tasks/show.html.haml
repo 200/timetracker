@@ -1,0 +1,13 @@
+%h2= @task.name
+.details
+  Estimation:
+  = @task.time
+  %br
+  Current time:
+  = @task.current_time
+  %br
+  = link_to "Create report", new_task_report_url(@task)
+.reports
+  - for report in @task.reports
+    .report_details
+      = "#{report.time} reported at #{report.created_at}"

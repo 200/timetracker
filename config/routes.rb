@@ -1,6 +1,8 @@
 Timetracker::Application.routes.draw do
 
-  resources :tasks, :except => [:edit, :update]
+  resources :tasks, :except => [:edit, :update] do
+    resources :reports, :only => [:new, :create]
+  end
 
   root :to => "tasks#index"
   # The priority is based upon order of creation:
