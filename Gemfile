@@ -3,9 +3,14 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'pg'
 gem 'haml'
+gem 'simple_form'
 
 
-group :test do
+group :test, :cucumber do  
+  gem 'factory_girl_rails'
+end
+
+group :development, :test, :cucumber do
   gem 'rspec-rails'
 end
 

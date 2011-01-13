@@ -1,0 +1,5 @@
+%h2 New task
+= simple_form_for @task do |f|
+  = f.input :name
+  = f.input :time, :hint => "Only number of minutes is acceptable. So type 120 if you worked 2 hours or 210 when it was 3,5 etc."
+  = f.submit "Create"

@@ -1,0 +1,7 @@
+%h4= task.name
+.task_details
+  Time: 
+  = task.time
+.taks_options
+  = button_to("delete", task_url(task), :method => :delete, :confirm => "Are you sure")
+
