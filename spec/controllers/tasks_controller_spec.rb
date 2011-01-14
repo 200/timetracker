@@ -57,4 +57,15 @@ describe TasksController do
     it { controller.flash[:notice].should == "Task deleted!"}
   end
 
+  describe "POST #finish" do
+    before(:each) do
+      @task = Factory(:task)
+      Task.stub!(:find).and_return(@task)
+      post :finish, :id => @task.id
+    end
+    it { assigns(:task).should == @task }
+    it { response.should redirect_to(task_url(@task))}
+    it { controller.flash[:notice].should == "Task is finished!" }
+    it { @task.finished.should == true}
+  end
 end

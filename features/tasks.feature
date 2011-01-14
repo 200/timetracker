@@ -23,3 +23,13 @@ Scenario: Delete existing task
   And I should not see "TestTask"
   And I should have 0 task records
 
+Scenario: Finish task
+	Given the following task record
+	|	id	|	name		|
+	|	1		| Task		|
+	When I go to the 1. task page
+	And I press "finish task"
+	Then I should be on the 1. task page
+	And I should see "Task is finished!"
+	And I should see "Finished"
+	And I should not see "Create report"

@@ -4,6 +4,8 @@
   = task.time
   || Current time:
   = task.current_time
+  || Finished: 
+  = task.finished
 .taks_options
   = button_to("delete", task_url(task), :method => :delete, :confirm => "Are you sure")
 %hr

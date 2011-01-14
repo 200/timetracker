@@ -6,7 +6,9 @@
   Current time:
   = @task.current_time
   %br
-  = link_to "Create report", new_task_report_url(@task)
+  = link_to "Create report", new_task_report_url(@task) unless @task.finished
+  %br
+  = @task.finished ? "Finished" : button_to("finish task", finish_task_url(@task), :method => :post)
 .reports
   - for report in @task.reports
     .report_details

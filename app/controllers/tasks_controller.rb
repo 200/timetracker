@@ -26,4 +26,10 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to root_url, :notice => "Task deleted!" 
   end
+
+  def finish
+    @task = Task.find(params[:id])
+    @task.update_attribute("finished", true)
+    redirect_to task_url(@task), :notice => "Task is finished!"
+  end
 end

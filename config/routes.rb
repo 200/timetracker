@@ -2,6 +2,9 @@ Timetracker::Application.routes.draw do
 
   resources :tasks, :except => [:edit, :update] do
     resources :reports, :only => [:new, :create, :destroy]
+    member do
+      post 'finish'
+    end
   end
 
   root :to => "tasks#index"
