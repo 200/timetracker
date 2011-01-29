@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'pg'
 gem 'haml'
-gem 'simple_form'
+gem 'simple_form', :git => "/home/piotrek/rails/simple_form"
 
 
 group :test, :cucumber do  
